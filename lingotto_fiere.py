@@ -25,7 +25,7 @@ class LingottoFiere:
                 riga = riga_grezza.strip().split(",")
 
                 if len(riga) == 3:
-                    nuovoEspositore = Espositore(riga[0], riga[1]), riga[2])
+                    nuovoEspositore = Espositore(riga[0], riga[1], riga[2])
                     self.insieme_espositore[riga[0]] = nuovoEspositore
 
                 elif len(riga) == 4:
@@ -42,15 +42,39 @@ class LingottoFiere:
 
     def assegna_stand_a_espositore(self, codice_stand, codice_espositore):
         """Associa uno stand a un espositore"""
-        # TODO
 
-        #riprndere da punto 6 gemini
+        if codice_stand not in self.insieme_stand:
+            raise ValueError("Stand non trovato")
 
+        if codice_espositore not in self.insieme_espositore:
+            raise ValueError("Espositore non trovato")
+
+        stand = self.insieme_stand[codice_stand]
+        if stand.espositore is not None:
+            raise ValueError("Stand già occupato")
+
+        espositore = self.insieme_espositore[codice_espositore]
+        for s in self.insieme_stand.values():
+            if s.espositore == espositore:
+                raise ValueError("Espositore già presente in un altro stand")
+
+        stand.espositore = espositore
 
     def elenca_espositori(self):
         """Stampa l'elenco degli espositori mostrando, per ognuno, lo stand a cui è associato, quando applicabile """
-        # TODO
+        for e in self.insieme_espositore.values():
+            stand_trovato = None
+
+            for s in self.insieme_stand.values():
+                if s.espositore == e:
+                    stand_trovato = s
+                    break
+
+            if stand_trovato is not None:
+                print(f"{e} - Stand assegnato: {stand_trovato.codice}")
+            else:
+                print(f"{e} - Nessuno stand assegnato")
 
     def stand_ordinati_per_prezzo(self):
         """Restituisce la lista ordinata degli stand in base al prezzo"""
-        # TODO
+        return sorted(self.insieme_stand.values())
