@@ -33,3 +33,4 @@ class Stand:
             return f'{self.codice}: Standard | {self.superficie} mq - Padiglione: {self.padiglione} - Prezzo: {self.prezzo_finale():.2f}€ - Assegnato a: {self.espositore}'
 
 
+

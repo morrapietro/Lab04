@@ -14,3 +14,4 @@ class StandPremium(Stand):
             return f'{self.codice}: Premium | {self.superficie} mq - Padiglione: {self.padiglione} - Prezzo: {self.prezzo_finale():.2f}€ - Posizione: {self.posizione} - Disponibile'
         else:
             return f'{self.codice}: Premium | {self.superficie} mq - Padiglione: {self.padiglione} - Prezzo: {self.prezzo_finale():.2f}€ - Posizione: {self.posizione} - Assegnato a: {self.espositore}'
+
