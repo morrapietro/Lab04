@@ -1,4 +1,4 @@
-from stand import  Stand
+from tipi_stand.stand import  Stand
 
 class StandPremium(Stand):
     def __init__(self, codice, superficie, padiglione, prezzo_base, posizione):

@@ -1,7 +1,7 @@
 from espositore import Espositore
-from stand import Stand
-from stand_extra import StandExtra
-from stand_premium import StandPremium
+from tipi_stand.stand import Stand
+from tipi_stand.stand_extra import StandExtra
+from tipi_stand.stand_premium import StandPremium
 
 class LingottoFiere:
     def __init__(self, nome):

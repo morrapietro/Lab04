@@ -1,4 +1,4 @@
-from stand import Stand
+from tipi_stand.stand import Stand
 
 #claase figlia della classe padre "stand"
 class StandExtra(Stand):
